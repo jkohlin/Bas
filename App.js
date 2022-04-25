@@ -18,7 +18,14 @@
  */
 
 import React, {useEffect, useState, useContext} from 'react'
-import {SafeAreaView, StatusBar, StyleSheet, View, Image} from 'react-native'
+import {
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  View,
+  Image,
+  Text,
+} from 'react-native'
 
 import {DataContext} from './DataProvider'
 import Input from './src/Components/Input'
@@ -39,7 +46,7 @@ const App = () => {
   const escapeRegex = string => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   useEffect(() => {
     let isSubscribed = true
-    console.log(bas.status)
+    console.log(bas.data.ChartVersion.Name)
 
     if (text && isSubscribed && bas.loaded) {
       const accounts = bas.data?.Accounts || []
@@ -58,7 +65,7 @@ const App = () => {
       setData(filteredAccounts)
     }
     return () => (isSubscribed = false)
-  }, [text, bas.loaded, bas.data])
+  }, [text, bas.loaded, bas.data, bas.status])
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={'light-content'} />
@@ -68,6 +75,9 @@ const App = () => {
       </View>
       <View style={styles.results}>
         {bas.loaded && text !== '' && <List basData={data} />}
+        {(text === null || text === '') && (
+          <Text style={styles.version}>{bas.data.ChartVersion.Name}</Text>
+        )}
       </View>
     </SafeAreaView>
   )
@@ -83,6 +93,11 @@ const styles = StyleSheet.create({
   results: {
     display: 'flex',
     flex: 1,
+  },
+  version: {
+    fontSize: 16,
+    color: '#fff',
+    textAlign: 'center',
   },
 })
 
