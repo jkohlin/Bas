@@ -47,6 +47,7 @@ const Item = ({item, onPress, backgroundColor, textColor, selectedId}) => {
     'NotAllowedInK2',
   ]
   const {data} = useContext(DataContext)
+  // Pressable instead of TouchableOpacity in next version
   return (
     <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
       <View style={styles.accountHeader}>

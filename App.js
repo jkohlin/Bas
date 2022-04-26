@@ -10,7 +10,6 @@
  kill -9 <PID>
   reactjs.org/link/setstate-in-render
   icons: Copy Bundle Resources: https://github.com/oblador/react-native-vector-icons/issues/1074
-  LTD, JP: översätt - https://iate.europa.eu/search/result/1646855775076/1
 
  * vanliga fel: https://reactnative.dev/docs/troubleshooting
  * @format
@@ -46,8 +45,6 @@ const App = () => {
   const escapeRegex = string => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   useEffect(() => {
     let isSubscribed = true
-    console.log(bas.data.ChartVersion.Name)
-
     if (text && isSubscribed && bas.loaded) {
       const accounts = bas.data?.Accounts || []
       let filteredAccounts = accounts.filter(account => {
@@ -75,7 +72,7 @@ const App = () => {
       </View>
       <View style={styles.results}>
         {bas.loaded && text !== '' && <List basData={data} />}
-        {(text === null || text === '') && (
+        {bas.loaded && (text === null || text === '') && (
           <Text style={styles.version}>{bas.data.ChartVersion.Name}</Text>
         )}
       </View>
