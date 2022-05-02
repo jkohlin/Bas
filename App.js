@@ -2,7 +2,7 @@
  * För att starta:
  npx react-native start
  npx react-native run-ios
- * Om man behöver installera fler dependencies, kör pod install på detta sätt:
+ * Om man behöver installera fler dependencies, kör pod install på detta sätt: (blir fel i iTerm annars)
  cd ios
  arch -x86_64 pod install
  * För att döda en process som redan kör port 8081
@@ -12,6 +12,7 @@
   icons: Copy Bundle Resources: https://github.com/oblador/react-native-vector-icons/issues/1074
 
  * vanliga fel: https://reactnative.dev/docs/troubleshooting
+  //TODO: install  and use react-native-purchases
  * @format
  * @flow strict-local
  */
@@ -60,6 +61,8 @@ const App = () => {
         )
       })
       setData(filteredAccounts)
+    } else if (text === '') {
+      setData([])
     }
     return () => (isSubscribed = false)
   }, [text, bas.loaded, bas.data, bas.status])
@@ -71,7 +74,7 @@ const App = () => {
         <Input text={text} setText={setText} />
       </View>
       <View style={styles.results}>
-        {bas.loaded && text !== '' && <List basData={data} />}
+        {bas.loaded && text !== null && <List basData={data} />}
         {bas.loaded && (text === null || text === '') && (
           <Text style={styles.version}>{bas.data.ChartVersion.Name}</Text>
         )}

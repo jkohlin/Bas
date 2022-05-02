@@ -4,7 +4,7 @@ import {storage} from './Storage'
 export const getBas = async setBas => {
   const basCache = storage.getString('bas')
   // TODO: varför läses inte Api.js in med storage med key:bas?
-  console.log(typeof basCache);
+  console.log('(typeof basCache', typeof basCache)
   if (typeof basCache !== 'undefined') {
     setBas({loaded: true, data: JSON.parse(basCache), status: 'cached'})
     return true

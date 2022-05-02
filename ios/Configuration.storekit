@@ -1,0 +1,33 @@
+{
+  "identifier" : "CBAADC9B",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "2.99",
+      "familyShareable" : false,
+      "internalID" : "38FBB780",
+      "localizations" : [
+        {
+          "description" : "Fri tillgång för evigt till kontoplan 2022",
+          "displayName" : "Aktuell baskontoplan för 2022",
+          "locale" : "sv"
+        }
+      ],
+      "productID" : "se.lejman.baskontoplan.2022",
+      "referenceName" : "Baskontoplan 2022",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 1,
+    "minor" : 2
+  }
+}
