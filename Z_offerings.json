@@ -1,0 +1,28 @@
+/* offerings.current */ 
+{
+    "identifier": "offer2022",
+    "availablePackages": [
+        {
+            "offeringIdentifier": "offer2022",
+            "product": {
+                "discounts": [],
+                "intro_price_string": null,
+                "intro_price_period_number_of_units": null,
+                "identifier": "se.lejman.baskontoplan.2022",
+                "intro_price_cycles": null,
+                "price_string": "$30.00",
+                "intro_price_period": null,
+                "title": "Aktuell baskontoplan för 2022",
+                "price": 30,
+                "currency_code": "USD",
+                "intro_price_period_unit": null,
+                "intro_price": null,
+                "introPrice": null,
+                "description": "Fri tillgång för evigt till kontoplan 2022"
+            },
+            "packageType": "CUSTOM",
+            "identifier": "Lifetime_2022"
+        }
+    ],
+    "serverDescription": "Fri tillgång för evigt till kontoplan 2022"
+}

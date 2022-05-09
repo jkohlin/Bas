@@ -1,0 +1,47 @@
+/* purchaserInfo */ {
+    "activeSubscriptions": [],
+    "allExpirationDates": {
+        "se.lejman.baskontoplan.2022": null
+    },
+    "allExpirationDatesMillis": {
+        "se.lejman.baskontoplan.2022": null
+    },
+    "allPurchaseDates": {
+        "se.lejman.baskontoplan.2022": "2022-05-01T21:49:19Z"
+    },
+    "allPurchaseDatesMillis": {
+        "se.lejman.baskontoplan.2022": 1651441759000
+    },
+    "allPurchasedProductIdentifiers": [
+        "se.lejman.baskontoplan.2022"
+    ],
+    "entitlements": {
+        "active": {
+            "access2022": [Object
+            ]
+        },
+        "all": {
+            "access2022": [Object
+            ]
+        }
+    },
+    "firstSeen": "2022-05-01T21:48:31Z",
+    "firstSeenMillis": 1651441711000,
+    "latestExpirationDate": null,
+    "latestExpirationDateMillis": null,
+    "managementURL": null,
+    "nonSubscriptionTransactions": [
+        {
+            "productId": "se.lejman.baskontoplan.2022",
+            "purchaseDate": "2022-05-01T21:49:19Z",
+            "purchaseDateMillis": 1651441759000,
+            "revenueCatId": "f2a55249c6"
+        }
+    ],
+    "originalAppUserId": "$RCAnonymousID:c49e2b95a8dc44ed83db9247f8aee53d",
+    "originalApplicationVersion": "1.0",
+    "originalPurchaseDate": "2022-05-01T21:49:19Z",
+    "originalPurchaseDateMillis": 1651441759000,
+    "requestDate": "2022-05-01T21:51:23Z",
+    "requestDateMillis": 1651441883000
+}
