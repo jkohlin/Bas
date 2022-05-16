@@ -1,49 +1,60 @@
 import bas2022 from './bas2022.json'
 import {storage} from './Storage'
-
 export const getBas = async setBas => {
   const basCache = storage.getString('bas')
   // TODO: kontrollera att basCache sparats i storage
-  console.log('API.js: basCache', typeof basCache)
   if (typeof basCache !== 'undefined') {
-    // TODO: kolla så att man inte just köpt en ny version
-    // TODO: useReducer istället: setBas({type: 'SET_BAS', payload: JSON.parse(basCache)}) Räcker detta eller?
-    setBas({loaded: true, data: JSON.parse(basCache), status: 'cached'})
+    setBas({
+      type: 'SET_BAS_CACHE',
+      payload: {
+        loaded: true,
+        data: basCache,
+        status: 'cache',
+        version: 'BAS 2022 ver 1.0',
+      },
+    })
     return true
   }
   const response = await getData() // {loaded: true, data: json, status: 'success', version: json.ChartVersion.Name}
 
   if (response.loaded) {
-    // DET ÄR HÄR JAG ÄR NU! SKALL LOGIKEN VARA HÄR ELLER NÅGON ANNANSTANS FÖR ATT KOLLA VILKEN VERSION MAN HAR RÄTT TILL?
-    // TODO: Check if user has paid for BAS 2023 in a more accurate way
     const isCurrent = response.version.includes('2022')
     storage.set('bas', JSON.stringify(response))
     if (isCurrent) {
-      setBas({loaded: true, data: response, status: 'live'})
+      setBas({
+        type: 'SET_BAS_LIVE',
+        payload: {
+          loaded: true,
+          data: response.data,
+          status: 'live',
+          version: response.version,
+        },
+      })
     } else {
-      setBas({loaded: true, data: bas2022, status: 'file'})
+      setBas({
+        type: 'SET_BAS_FILE',
+        payload: {
+          loaded: true,
+          data: bas2022,
+          status: 'file',
+          version: 'BAS 2022 ver 1.0',
+        },
+      })
     }
     return true
   } else {
-    setBas({loaded: true, data: bas2022, status: 'file'})
+    setBas({
+      type: 'SET_BAS_ERROR',
+      payload: {
+        loaded: true,
+        data: bas2022,
+        status: response.status,
+        version: 'BAS 2022 ver 1.0',
+      },
+    })
     return true
   }
-  // else
-  setBas({loaded: false, data: error, status: 'error'})
-  return false
 }
-/**
- * @typedef {object} BasInfo
- * @property {boolean} loaded - true if BAS is loaded
- * @property {object} data - The entire BAS API object
- * @property {string} status - "syntax error" / "errorObj" / "success"
- */
-/**
- * Returns BAS and information about current BAS.
- *
- * @param {boolean} noData If true, don't return bas data
- * @return {BasInfo}
- */
 export const getData = async (noData = false) => {
   const url = 'https://api.bas.se/v1/accounts/?organizationType=ALL'
   try {

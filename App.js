@@ -9,10 +9,8 @@
  sudo lsof -i :8081
  kill -9 <PID>
   reactjs.org/link/setstate-in-render
-  icons: Copy Bundle Resources: https://github.com/oblador/react-native-vector-icons/issues/1074
-
  * vanliga fel: https://reactnative.dev/docs/troubleshooting
-  //TODO: install  and use react-native-purchases
+  //TODO: install  and use react-native-purchases from revenueCat
  * @format
  * @flow strict-local
  */
@@ -30,7 +28,6 @@ import {
 import {DataContext} from './DataProvider'
 import Input from './src/Components/Input'
 import List from './src/Components/List'
-//import {isLocal, storage, useStorage} from './src/Storage'
 
 const App = () => {
   const bas = useContext(DataContext)
