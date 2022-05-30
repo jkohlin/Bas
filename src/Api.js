@@ -4,11 +4,12 @@ export const getBas = async setBas => {
   const basCache = storage.getString('bas')
   // TODO: kontrollera att basCache sparats i storage
   if (typeof basCache !== 'undefined') {
+    //console.log('SET_CACHE', JSON.parse(basCache).data)
     setBas({
       type: 'SET_BAS_CACHE',
       payload: {
         loaded: true,
-        data: basCache,
+        data: JSON.parse(basCache).data,
         status: 'cache',
         version: 'BAS 2022 ver 1.0',
       },

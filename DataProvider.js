@@ -15,6 +15,7 @@ const basReducer = (state, action) => {
         version,
       }
     case 'SET_BAS_CACHE':
+      //console.log('in reducer switch cache', payload.data)
       return {
         ...state,
         loaded: true,

@@ -63,6 +63,7 @@ const App = () => {
     }
     return () => (isSubscribed = false)
   }, [text, bas.loaded, bas.data, bas.status])
+  console.log('bas', data)
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={'light-content'} />
@@ -73,7 +74,7 @@ const App = () => {
       <View style={styles.results}>
         {bas.loaded && text !== null && <List basData={data} />}
         {bas.loaded && (text === null || text === '') && (
-          <Text style={styles.version}>{bas.data.ChartVersion.Name}</Text>
+          <Text style={styles.version}>{bas?.version || ''}</Text>
         )}
       </View>
     </SafeAreaView>
