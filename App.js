@@ -43,7 +43,7 @@ const App = () => {
   const escapeRegex = string => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   useEffect(() => {
     let isSubscribed = true
-    if (text && isSubscribed && bas.loaded) {
+    if (isSubscribed && bas.loaded) {
       const accounts = bas.data?.Accounts || []
       let filteredAccounts = accounts.filter(account => {
         if (isNaN(text)) {
@@ -52,10 +52,10 @@ const App = () => {
               -1 && account.AccountNumber.length !== 3
           )
         }
-        return (
-          account.AccountNumber.startsWith(text) &&
-          account.AccountNumber.length !== 3
-        )
+        return text
+          ? account.AccountNumber.startsWith(text) &&
+              account.AccountNumber.length !== 3
+          : true
       })
       setData(filteredAccounts)
     } else if (text === '') {
@@ -63,7 +63,6 @@ const App = () => {
     }
     return () => (isSubscribed = false)
   }, [text, bas.loaded, bas.data, bas.status])
-  console.log('bas', data)
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={'light-content'} />
@@ -72,10 +71,10 @@ const App = () => {
         <Input text={text} setText={setText} />
       </View>
       <View style={styles.results}>
-        {bas.loaded && text !== null && <List basData={data} />}
-        {bas.loaded && (text === null || text === '') && (
+        <List basData={data} />
+        {/* {bas.loaded && (text === null || text === '') && (
           <Text style={styles.version}>{bas?.version || ''}</Text>
-        )}
+        )} */}
       </View>
     </SafeAreaView>
   )
