@@ -507,6 +507,8 @@
 				DEVELOPMENT_TEAM = V7HHT4LVLB;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Bas/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Baskontoplanen 2022";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -535,6 +537,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V7HHT4LVLB;
 				INFOPLIST_FILE = Bas/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Baskontoplanen 2022";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
